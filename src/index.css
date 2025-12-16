@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-navBg: rgba(242, 242, 242, 1);
+  --color-white: rgba(248, 254, 251, 1);
+  --color-green: rgba(1, 57, 65, 1);
+  --color-navTextGray: rgba(130, 130, 130, 1);
+  --color-formBorder: rgba(224, 224, 224, 1);
+  --color-black: rgba(0, 14, 16, 1);
+  --color-selectBg: rgba(247, 247, 247, 1);
+}
+
+.button {
+  font-family: "Instrument Sans", sans-serif;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+}
