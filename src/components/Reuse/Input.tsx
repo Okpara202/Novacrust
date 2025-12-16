@@ -26,11 +26,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ) => {
     const baseInputClasses = [
       "w-full px-4 py-3 md:px-6 md:py-4",
-      "text-base md:text-lg text-gray-900",
+      "text-base md:text-lg text-green",
       "border border-formBorder rounded-[30px]",
       "focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent",
       "transition-all duration-200",
-      "placeholder:text-gray-400",
+      "placeholder:text-green/50",
       className,
       inputClassName,
     ]
@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className={`flex flex-col gap-2 ${containerClassName}`}>
         {label && (
           <label
-            className={`text-sm md:text-base font-medium text-gray-700 ${labelClassName}`}
+            className={`text-sm md:text-base font-medium text-green ${labelClassName}`}
           >
             {label}
             {props.required && <span className="ml-1 text-green-600">*</span>}

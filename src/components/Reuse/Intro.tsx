@@ -1,13 +1,15 @@
 function Intro({ introText }: { introText: string }) {
   return (
-    <aside className="grid grid-cols-3">
+    <aside className="flex justify-between items-center">
       {/* Step 2 Header */}
-      <img
-        src="/public/ArrowLeft.png"
-        alt="Back icon"
-        className="cursor-pointer"
-      />
-      <p className="font-medium text-xl text-green leading-[100%]">
+      <div className="max-w-[130px]">
+        <img
+          src="/public/ArrowLeft.png"
+          alt="Back icon"
+          className="cursor-pointer"
+        />
+      </div>
+      <p className="font-medium text-xl text-green leading-[100%] w-full text-center">
         {introText}
       </p>
     </aside>

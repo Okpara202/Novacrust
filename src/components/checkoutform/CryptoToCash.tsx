@@ -1,4 +1,6 @@
 import { useState } from "react";
+import CashToCrypto from "./cashToCrypto";
+import CryptoTofiatLoan from "./cryptoTofiatLoan";
 
 function CryptoToCash() {
   const [transactionType, setTransactionType] =
@@ -39,98 +41,102 @@ function CryptoToCash() {
         ))}
       </div>
 
-      {/* Step 1 content */}
-      <div className="mt-10 flex flex-col gap-6">
-        <div className="p-6 border border-formBorder rounded-[30px] flex flex-col gap-2">
-          <label className="text-navTextGray text-base font-medium">
-            You Pay
-          </label>
+      {transactionType === "crypto to cash" && (
+        <div className="mt-10 flex flex-col gap-6">
+          <div className="p-6 border border-formBorder rounded-[30px] flex flex-col gap-2">
+            <label className="text-navTextGray text-base font-medium">
+              You Pay
+            </label>
 
-          <aside className="flex justify-between items-center">
-            {/* Amount and BlockChain */}
-            <input
-              className="text-black font-semibold text-2xl border-0 outline-0"
-              value={"1.00"}
-              type="text"
-              name=""
-              id=""
-            />
-            <select
-              className="py-2 px-3 flex gap-1 rounded-[20px] bg-selectBg border-formBorder border-0 outline-0"
-              name=""
-              id=""
-            >
-              {/* TODO: fix images */}
-              <img src="/" alt="Eth Icon" />
-              <option
-                className="text-sm font-medium leading-5 text-green"
-                value={"Eth"}
+            <aside className="flex justify-between items-center">
+              {/* Amount and BlockChain */}
+              <input
+                className="text-black font-semibold text-2xl border-0 outline-0"
+                value={"1.00"}
+                type="text"
+                name=""
+                id=""
+              />
+              <select
+                className="py-2 px-3 flex gap-1 rounded-[20px] bg-selectBg border-formBorder border-0 outline-0"
+                name=""
+                id=""
               >
-                ETH
-              </option>
-            </select>
-          </aside>
-        </div>
+                {/* TODO: fix images */}
+                <img src="/" alt="Eth Icon" />
+                <option
+                  className="text-sm font-medium leading-5 text-green"
+                  value={"Eth"}
+                >
+                  ETH
+                </option>
+              </select>
+            </aside>
+          </div>
 
-        <div className="p-6 border border-formBorder rounded-[30px] flex flex-col gap-2">
-          <label className="text-navTextGray text-base font-medium">
-            You recieve
-          </label>
+          <div className="p-6 border border-formBorder rounded-[30px] flex flex-col gap-2">
+            <label className="text-navTextGray text-base font-medium">
+              You recieve
+            </label>
 
-          <aside className="flex justify-between items-center">
-            {/* Amount and Currency */}
-            <input
-              className="text-black font-semibold text-2xl border-0 outline-0"
-              value={"1.00"}
-              type="text"
-              name=""
-              id=""
-            />
-            <select
-              className="py-2 px-3 flex gap-1 rounded-[20px] bg-selectBg border-formBorder border-0 outline-0"
-              name=""
-              id=""
-            >
-              {/* TODO: fix images */}
-              <img src="/" alt="Eth Icon" />
-              <option
-                className="text-sm font-medium leading-5 text-green"
-                value={"Eth"}
+            <aside className="flex justify-between items-center">
+              {/* Amount and Currency */}
+              <input
+                className="text-black font-semibold text-2xl border-0 outline-0"
+                value={"1.00"}
+                type="text"
+                name=""
+                id=""
+              />
+              <select
+                className="py-2 px-3 flex gap-1 rounded-[20px] bg-selectBg border-formBorder border-0 outline-0"
+                name=""
+                id=""
               >
-                NGN
-              </option>
+                {/* TODO: fix images */}
+                <img src="/" alt="Eth Icon" />
+                <option
+                  className="text-sm font-medium leading-5 text-green"
+                  value={"Eth"}
+                >
+                  NGN
+                </option>
+              </select>
+            </aside>
+          </div>
+
+          {/* Pay from */}
+          <div className="flex flex-col gap-4">
+            <label
+              className="text-green leading-[100%] text-base font-medium"
+              htmlFor=""
+            >
+              Pay from
+            </label>
+
+            <select className="border border-formBorder rounded-[30px] p-6 text-base font-normal text-green">
+              <option value={""}>Select an option</option>
             </select>
-          </aside>
+          </div>
+
+          {/* Pay To */}
+          <div className="flex flex-col gap-4">
+            <label
+              className="text-green leading-[100%] text-base font-medium"
+              htmlFor=""
+            >
+              Pay To
+            </label>
+
+            <select className="border border-formBorder rounded-[30px] p-6 text-base font-normal text-green">
+              <option value={""}>Select an option</option>
+            </select>
+          </div>
         </div>
+      )}
 
-        {/* Pay from */}
-        <div className="flex flex-col gap-4">
-          <label
-            className="text-green leading-[100%] text-base font-medium"
-            htmlFor=""
-          >
-            Pay from
-          </label>
-
-          <select className="border border-formBorder rounded-[30px] p-6 text-base font-normal text-green">
-            <option value={""}>Select an option</option>
-          </select>
-        </div>
-
-        {/* Pay To */}
-        <div className="flex flex-col gap-4">
-          <label
-            className="text-green leading-[100%] text-base font-medium"
-            htmlFor=""
-          >
-            Pay To
-          </label>
-
-          <select className="border border-formBorder rounded-[30px] p-6 text-base font-normal text-green">
-            <option value={""}>Select an option</option>
-          </select>
-        </div>
-      </div>
+      {transactionType === "cash to crypto" && <CashToCrypto />}
+      {transactionType === "crypto to fiat loan" && <CryptoTofiatLoan />}
     </>
   );
 }
