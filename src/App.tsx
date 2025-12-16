@@ -6,6 +6,7 @@ import Button from "./components/Reuse/Button";
 import RecipientDetails from "./components/checkoutform/RecipientDetails";
 import RecipientEmail from "./components/checkoutform/RecipientEmail";
 import PreviewCrypto from "./components/checkoutform/PreviewCrypto";
+import Success from "./components/checkoutform/Success";
 
 function App() {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -39,7 +40,7 @@ function App() {
           {currentStep === 2 && <RecipientDetails />}
           {currentStep === 3 && <RecipientEmail />}
           {currentStep === 4 && <PreviewCrypto />}
-          {currentStep === 4 && <PreviewCrypto />}
+          {currentStep === 5 && <Success />}
           {currentStep === 6 && (
             <div className="mt-6">{/* Step 4 content */}</div>
           )}
