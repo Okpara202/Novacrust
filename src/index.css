@@ -10,6 +10,8 @@
   --color-black: rgba(0, 14, 16, 1);
   --color-selectBg: rgba(247, 247, 247, 1);
   --color-comingSoon: rgba(79, 79, 79, 1);
+  --color-lightBlue: rgba(230, 251, 242, 1);
+  --color-lightBlueBorder: rgba(204, 246, 229, 1);
 }
 
 .button {

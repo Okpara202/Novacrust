@@ -9,8 +9,10 @@ import PreviewCrypto from "./components/checkoutform/PreviewCrypto";
 
 function App() {
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const [transactionType, setTransactionType] =
+    useState<string>("crypto to cash");
 
-  const totalSteps = 5;
+  const totalSteps = 6;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,12 +25,6 @@ function App() {
     }
   };
 
-  // const handleBack = () => {
-  //   if (currentStep > 1) {
-  //     setCurrentStep(currentStep - 1);
-  //   }
-  // };
-
   return (
     <main className="flex flex-col min-h-screen mt-10">
       <form
@@ -37,22 +33,27 @@ function App() {
       >
         <div className="flex-1">
           {/*  step content */}
-          {currentStep === 1 && <CryptoToCash />}
+          {currentStep === 1 && (
+            <CryptoToCash onTransactionTypeChange={setTransactionType} />
+          )}
           {currentStep === 2 && <RecipientDetails />}
           {currentStep === 3 && <RecipientEmail />}
           {currentStep === 4 && <PreviewCrypto />}
-          {currentStep === 5 && (
+          {currentStep === 4 && <PreviewCrypto />}
+          {currentStep === 6 && (
             <div className="mt-6">{/* Step 4 content */}</div>
           )}
         </div>
 
         <div className="sticky bottom-0 py-4 bg-white">
-          {currentStep < 5 ? (
+          {currentStep < 6 ? (
             <Button
               onClick={handleNext}
               text={
                 currentStep === 1
-                  ? "Convert now"
+                  ? transactionType === "crypto to cash"
+                    ? "Convert now"
+                    : "Update me"
                   : currentStep === 4
                     ? "I have sent it"
                     : "Next"

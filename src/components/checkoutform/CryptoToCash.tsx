@@ -2,9 +2,20 @@ import { useState } from "react";
 import CashToCrypto from "./cashToCrypto";
 import CryptoTofiatLoan from "./cryptoTofiatLoan";
 
-function CryptoToCash() {
+interface CryptoToCashProps {
+  onTransactionTypeChange?: (type: string) => void;
+}
+
+function CryptoToCash({ onTransactionTypeChange }: CryptoToCashProps) {
   const [transactionType, setTransactionType] =
     useState<string>("crypto to cash");
+
+  const handleTransactionTypeChange = (type: string) => {
+    setTransactionType(type);
+    if (onTransactionTypeChange) {
+      onTransactionTypeChange(type);
+    }
+  };
 
   const navItems = [
     { id: "crypto to cash", label: "Crypto to cash" },
@@ -26,7 +37,7 @@ function CryptoToCash() {
             type="button"
             role="tab"
             aria-selected={transactionType === item.id}
-            onClick={() => setTransactionType(item.id)}
+            onClick={() => handleTransactionTypeChange(item.id)}
             className={`
                 py-2 px-4 rounded-[30px] font-medium text-sm transition-colors cursor-pointer
                 ${
@@ -132,15 +143,6 @@ function CryptoToCash() {
               <option value={""}>Select an option</option>
             </select>
           </div>
-
-          {/* Convert/Update Button */}
-          <button
-            className={`mt-6 py-4 px-8 rounded-[30px] text-white font-medium text-base ${
-              transactionType === "crypto to cash" ? "bg-green" : "bg-gray-400"
-            }`}
-          >
-            {transactionType === "crypto to cash" ? "Convert Now" : "Update Me"}
-          </button>
         </div>
       )}
 
