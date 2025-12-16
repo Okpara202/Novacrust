@@ -1,7 +1,7 @@
 function Intro({ introText }: { introText: string }) {
   return (
     <aside className="flex justify-between items-center">
-      {/* Step 2 Header */}
+      {/* Header */}
       <div className="max-w-[130px]">
         <img src="/ArrowLeft.png" alt="Back icon" className="cursor-pointer" />
       </div>
