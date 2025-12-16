@@ -132,6 +132,15 @@ function CryptoToCash() {
               <option value={""}>Select an option</option>
             </select>
           </div>
+
+          {/* Convert/Update Button */}
+          <button
+            className={`mt-6 py-4 px-8 rounded-[30px] text-white font-medium text-base ${
+              transactionType === "crypto to cash" ? "bg-green" : "bg-gray-400"
+            }`}
+          >
+            {transactionType === "crypto to cash" ? "Convert Now" : "Update Me"}
+          </button>
         </div>
       )}
 

@@ -33,7 +33,7 @@ function App() {
     <main className="flex flex-col min-h-screen mt-10">
       <form
         onSubmit={handleSubmit}
-        className="flex-1 flex flex-col w-[90%] sm:w-[85%] md:w-[80%] max-w-[512px] mx-auto"
+        className="flex-1 flex flex-col w-[90%] sm:w-[85%] md:w-[80%] max-w-[530px] mx-auto"
       >
         <div className="flex-1">
           {/*  step content */}
